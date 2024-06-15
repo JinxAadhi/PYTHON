@@ -1,0 +1,13 @@
+n = int(input())
+numbers = list(map(int, input().split()))
+k = int(input())
+
+num_dict = {}
+for num in numbers:
+    if k - num in num_dict:
+        print("Yes")
+        break
+    else:
+        num_dict[num] = True
+else:
+    print("No")
