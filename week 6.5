@@ -1,0 +1,29 @@
+def find_pair(arr, k):
+    i, j = 0, 1  # Initialize two pointers
+
+    while i < len(arr) and j < len(arr):
+        diff = arr[j] - arr[i]
+        if diff == k and i != j:  # Found the pair with the desired difference
+            return 1
+        elif diff < k:
+            j += 1  # Move the right pointer to increase the difference
+        else:
+            i += 1  # Move the left pointer to decrease the difference
+
+    return 0  # Pair not found
+
+
+# Get the number of test cases
+T = int(input())
+
+for _ in range(T):
+    # Get the array size and elements
+    N = int(input())
+    arr = list(map(int, input().split()))
+
+    # Get the target difference
+    k = int(input())
+
+    # Find the pair and print the result
+    result = find_pair(arr, k)
+    print(result)
