@@ -1,0 +1,16 @@
+s= input()
+u=''
+d=''
+e=''
+ind=0
+for i in range(len(s)):
+    if s[i]=='@':
+        u=s[ind:i]
+        ind=i+1
+    if s[i]=='.':
+        d=s[ind:i]
+        ind=i+1
+    if s[i]=='.':
+        e=s[ind:]
+        break
+print(e,d,u,sep='\n')
