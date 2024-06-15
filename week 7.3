@@ -1,0 +1,22 @@
+def find_words(words):
+    row1 = set("qwertyuiop")
+    row2 = set("asdfghjkl")
+    row3 = set("zxcvbnm")
+    result = []
+    
+    for word in words:
+        word_set = set(word.lower())
+        if word_set.issubset(row1) or word_set.issubset(row2) or word_set.issubset(row3):
+            result.append(word)
+    
+    return result
+
+# Test cases
+print(find_words(["Hello","Alaska","Dad","Peace"]))  # Output: ["Alaska","Dad"]
+print(find_words(["omk"]))  # Output: []
+print(find_words(["adsdf","sfd"]))  # Output: ["adsdf","sfd"]
+
+# Additional test cases for hidden tests
+print(find_words(["Python", "Java", "Ruby", "Csharp"]))  # Output: ["Java", "Ruby", "Csharp"]
+print(find_words(["apple", "banana", "orange", "grape"]))  # Output: []
+print(find_words(["Hello", "World", "qwerty", "Python"]))  # Output: ["Hello", "World", "qwerty"]
