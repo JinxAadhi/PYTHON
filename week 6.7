@@ -1,0 +1,18 @@
+def find_pivot_index(arr):
+    total_sum = sum(arr)
+    prefix_sum = 0
+    for i, num in enumerate(arr):
+        suffix_sum = total_sum - prefix_sum - num
+        if prefix_sum == suffix_sum:
+            return i
+        prefix_sum += num
+    # If no pivot is found, return -1
+    return -1
+
+# Read input
+n = int(input().strip())
+arr = [int(input().strip()) for _ in range(n)]
+
+# Find and output the pivot index
+pivot_index = find_pivot_index(arr)
+print(pivot_index)
