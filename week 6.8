@@ -1,0 +1,55 @@
+def merge_arrays(array1, array2):
+    merged = []
+    i, j = 0, 0
+    n1, n2 = len(array1), len(array2)
+   
+    # Merge both arrays while ensuring no duplicates and maintaining sorted order
+    while i < n1 and j < n2:
+        if array1[i] < array2[j]:
+            if not merged or array1[i] != merged[-1]:  # Avoid duplicates
+                merged.append(array1[i])
+            i += 1
+        elif array1[i] > array2[j]:
+            if not merged or array2[j] != merged[-1]:  # Avoid duplicates
+                merged.append(array2[j])
+            j += 1
+        else:
+            if not merged or array1[i] != merged[-1]:  # Avoid duplicates
+                merged.append(array1[i])
+            i += 1
+            j += 1
+   
+    # Append remaining elements from array1 (if any)
+    while i < n1:
+        if not merged or array1[i] != merged[-1]:  # Avoid duplicates
+            merged.append(array1[i])
+        i += 1
+   
+    # Append remaining elements from array2 (if any)
+    while j < n2:
+        if not merged or array2[j] != merged[-1]:  # Avoid duplicates
+            merged.append(array2[j])
+        j += 1
+   
+    return merged
+
+# Main function to process input and output results
+def main():
+    # Input for array 1
+    N1 = int(input())
+    array1 = [int(input()) for _ in range(N1)]
+   
+    # Input for array 2
+    N2 = int(input())
+    array2 = [int(input()) for _ in range(N2)]
+   
+    # Merge the arrays and remove duplicates
+    merged_result = merge_arrays(array1, array2)
+   
+    # Print the merged result
+    print(' '.join(map(str, merged_result)))
+
+# Run the main function
+if __name__ == "__main__":
+    main()
+
